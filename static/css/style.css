@@ -16,8 +16,9 @@ img{
     display:block;
 }
 body{
+    display:grid;
     font-family:"calibri";
-    background:orange;
+    background: radial-gradient(circle, #11767c, #2c1e2e);
 }
 .pokemones{
     justify-self:center;
@@ -28,19 +29,46 @@ body{
     grid-template-columns:repeat(5,1fr);
 }
 .pokemon{
+    color:white;
+    grid-template-areas:
+    "id nombre ."
+    "imagen imagen imagen";
     display:grid;
     gap:var(--radio_2);
-    justify-content:center;
+    grid-template-columns:1fr 1fr 1fr;
+    justify-items:center;
     align-items:center;
     padding:var(--radio_1);
-    background:var(--color_alfa);
+    background: linear-gradient(to top right, #47436a, #666383);
+    border:1px #ffffff8c solid;
     border-radius:var(--radio_3);
 }
+.pokemon__id{
+    display:grid;
+    place-items:center;
+    font-weight:bold;
+    grid-area:id;
+    color:white;
+    background:var(--color_alfa_oscuro);
+    border-radius:100%;
+    width:1.5rem;
+    font-size:.8rem;
+    text-align:center;
+    aspect-ratio:1/1;
+    border: 2px hsl(170deg 100% 30%) solid;
+}
 .pokemon__nombre{
+    text-transform:capitalize;
+    grid-area:nombre;
     text-align:center;
 }
 .pokemon__imagen{
+    grid-area:imagen;
     border-radius:100%;
-    border:1px var(--color_alfa_oscuro) solid;
-    background:var(--color_alfa);
+    border:.3rem #824444 solid;
+
+    background:radial-gradient(
+        hsl(183 64% 30%),
+    hsl(183 64% 45%)
+    );
 }
