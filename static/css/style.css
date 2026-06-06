@@ -6,6 +6,7 @@
     box-sizing: border-box;
 }
 :root{
+    --borde_item:2px hsl(170deg 100% 30%) solid;;
     --color_alfa:#ffffff7a;
     --color_alfa_oscuro:#0000004d;
     --radio_1:0.8rem;
@@ -17,53 +18,70 @@ img{
 }
 body{
     display:grid;
+    gap:1rem;
+    grid-template-rows:1fr;
     font-family:"calibri";
     background: radial-gradient(circle, #11767c, #2c1e2e);
 }
 .pokemones{
     justify-self:center;
-    width:100%;
-    max-width:1000px;
+  
     display:grid;
-    gap:var(--radio_3);
+    gap:1.5rem;
     grid-template-columns:repeat(5,1fr);
+    
 }
-.pokemon{
+.titulo{
     color:white;
-    grid-template-areas:
-    "id nombre ."
-    "imagen imagen imagen";
+    background:var(--color_alfa_oscuro);
+    padding:1rem;
+}
+.pokemon__holder{
+    display:grid;
+    place-items:center;
+}
+.pokemon__card{
+    color:white;
     display:grid;
     gap:var(--radio_2);
-    grid-template-columns:1fr 1fr 1fr;
     justify-items:center;
     align-items:center;
-    padding:var(--radio_1);
-    background: linear-gradient(to top right, #47436a, #666383);
-    border:1px #ffffff8c solid;
-    border-radius:var(--radio_3);
+   
+    position:relative;
 }
 .pokemon__id{
     display:grid;
+    position:absolute;
+    top:.4rem;
+    left:.4rem;
     place-items:center;
     font-weight:bold;
-    grid-area:id;
     color:white;
-    background:var(--color_alfa_oscuro);
+    background:hsl(0,0%,10%);
     border-radius:100%;
     width:1.5rem;
-    font-size:.8rem;
+    font-size:.6rem;
     text-align:center;
     aspect-ratio:1/1;
-    border: 2px hsl(170deg 100% 30%) solid;
+    border: var(--borde_item);
 }
 .pokemon__nombre{
-    text-transform:capitalize;
-    grid-area:nombre;
+
+    position:absolute;
+    bottom:-.5rem;
+    left:0px;
+    right:0px;
     text-align:center;
+    padding:.2rem 0rem;
+    border-radius:1rem;
+    background:linear-gradient(
+        hsl(180,100%,15%),
+        hsl(180,100%,10%)
+    );
+    text-transform:capitalize;
 }
 .pokemon__imagen{
-    grid-area:imagen;
+
     border-radius:100%;
     border:.3rem #824444 solid;
 

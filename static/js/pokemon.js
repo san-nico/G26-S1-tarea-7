@@ -3,21 +3,23 @@ let api_root = "https://pokeapi.co/api/v2/pokemon";
 async function get_pokemon_stats(url) {
   let response = await fetch(url);
   let data = await response.json();
-
   return data;
 }
 async function get_pokemones(url) {
   let response = await fetch(url);
   let data = await response.json();
-
   return Promise.all(data.results.map((n) => get_pokemon_stats(n.url)));
+}
+function fix_nombre(nombre){
+    //el text-transform:capitalize se está bugueando en chrome
+    return nombre[0].toUpperCase() + nombre.slice(1);
 }
 function renderPokemon(pokemon) {
   let nodo = document.createElement("article");
-  nodo.classList.add("pokemon");
+  nodo.classList.add("pokemon__card");
   nodo.innerHTML = `
         <span class="pokemon__id">${pokemon.id}</span>
-        <h3 class="pokemon__nombre">${pokemon.name}</h3>
+        <h3 class="pokemon__nombre">${fix_nombre(pokemon.name)}</h3>
         <img class="pokemon__imagen" src="${pokemon.sprites.front_default}" alt="${pokemon.nombre}">
     `;
 
@@ -28,4 +30,6 @@ async function main() {
   cosas.forEach((pokemon) => renderPokemon(pokemon));
   cosas.forEach((pokemon) => console.log(pokemon));
 }
-main();
+window.addEventListener("DOMContentLoaded", () => {
+  main();
+});
