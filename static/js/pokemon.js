@@ -10,29 +10,26 @@ async function get_pokemon_stats(url){
     return pokemon
 }
 async function get_pokemones(url){
-    let response = await fetch(url)
-    let data = await response.json()
+    let response=await fetch(url)
+    let data=await response.json()
 
-    let container = document.querySelector(".pokemones")
-
-    let promises = data.results.map(async (nodo) => {
-        let pokemon = await get_pokemon_stats(nodo.url)
-
-        let div = document.createElement("div")
-        div.classList.add("pokemon")
-        div.innerHTML = `
-            <h3>${pokemon.nombre}</h3>
-            <img src="${pokemon.imagen}" alt="${pokemon.nombre}">
-        `
-
-        container.appendChild(div)
-    })
-
-    await Promise.all(promises)
+    return Promise.all(data.results.map(n=>get_pokemon_stats(n.url)))
 }
 
-async function poblar_pokemones(){
-    let url="https://pokeapi.co/api/v2/pokemon"
-    get_pokemones(url)
+async function poblar_pokemones(){   
+    let index='https://pokeapi.co/api/v2/pokemon'
+    let pokemones=document.getElementsByClassName('pokemones')[0];
+    let data=await get_pokemones(index)
+    data.forEach(pokemon=>(
+        nodo=document.createElement('article'),
+        nodo.classList.add('pokemon'),
+        nodo.innerHTML=`
+        <h3 class="pokemon__nombre">${pokemon.nombre}</h3>
+        <img class="pokemon__imagen" src="${pokemon.imagen}" alt="${pokemon.nombre}">
+        `,
+        pokemones.appendChild(nodo)
+    ))
+
 }
+
 poblar_pokemones()

@@ -35,7 +35,6 @@ body{
     padding:var(--radio_1);
     background:var(--color_alfa);
     border-radius:var(--radio_3);
-
 }
 .pokemon__nombre{
     text-align:center;
