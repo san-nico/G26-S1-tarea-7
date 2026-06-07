@@ -6,7 +6,7 @@
     box-sizing: border-box;
 }
 :root{
-    --borde_item:2px hsl(170deg 100% 30%) solid;;
+    --borde_item:2px hsl(170deg 100% 30%) solid;
     --color_alfa:#ffffff7a;
     --color_alfa_oscuro:#0000004d;
     --radio_1:0.8rem;
