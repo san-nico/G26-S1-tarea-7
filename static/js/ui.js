@@ -3,6 +3,9 @@ let paginaNueva = 1;
 
 import {cargarPagina} from "./render.js";
 
+export function setPagina(pagina_index) {
+    pagina=pagina_index
+}
 export function inicializarPaginacion() {
   const btnDerecha = document.querySelector("#btn-derecha");
   const btnIzquierda = document.querySelector("#btn-izquierda");
@@ -23,11 +26,9 @@ export function inicializarPaginacion() {
 
 btnBuscar.addEventListener("click", () => {
   console.log("cargando");
-  if (pagina !== paginaNueva) {
-    pagina = paginaNueva;
+      pagina = paginaNueva;
     // En vez de await cargarPagina(pagina), cambiamos el hash
     location.hash = `pagina=${pagina}`;
-  }
 });
 
 }

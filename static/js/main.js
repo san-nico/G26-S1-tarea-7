@@ -1,14 +1,8 @@
-import { inicializarPaginacion } from "./ui.js";
+import { inicializarPaginacion, setPagina } from "./ui.js";
 import { loadTemplates, cargarPagina, cargarPokemon } from "./render.js";
 
-async function main() {
-  console.log("iniciando...");
-  await loadTemplates();
-  await inicializarPaginacion();
-  await cargarPagina();
 
-  // Escuchar cambios en el hash de la URL
-  window.addEventListener("hashchange", () => {
+function mainController(){
     // Quita el símbolo #
     const hash = location.hash.substring(1);
 
@@ -23,16 +17,20 @@ async function main() {
     }
 
     if (pagina) {
-      cargarPagina(parseInt(pagina, 10));
+      const paginaNueva = parseInt(pagina, 10);
+      setPagina(paginaNueva);
+      cargarPagina(paginaNueva);
     }
-  });
+}
+async function main() {
+  console.log("iniciando...");
+  await loadTemplates();
+  await inicializarPaginacion();
 
-  // También puedes disparar al inicio si ya hay un hash en la URL
-  const initialHash = location.hash.replace("#", "");
-  const initialIndice = parseInt(initialHash, 10);
-  if (!isNaN(initialIndice)) {
-    cargarPokemon(initialIndice);
-  }
+  // Escuchar cambios en el hash de la URL
+  window.addEventListener("hashchange", mainController);
+  mainController();
+
 }
 
 window.addEventListener("DOMContentLoaded", main);
