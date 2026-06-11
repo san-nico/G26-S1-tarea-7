@@ -1,4 +1,5 @@
 let api_root = "https://pokeapi.co/api/v2/pokemon";
+
 async function get_pokemon_stats(url) {
   try {
     const response = await fetch(url);
@@ -16,6 +17,7 @@ async function get_pokemon_stats(url) {
     return null;
   }
 }
+
 async function get_pokemones(url) {
   try {
     const response = await fetch(url);
@@ -32,21 +34,38 @@ async function get_pokemones(url) {
     return [];
   }
 }
+
 function fix_nombre(nombre) {
   return nombre[0].toUpperCase() + nombre.slice(1);
 }
+
 function renderPokemon(pokemon) {
   const nodo = document.createElement("article");
   nodo.classList.add("pokemon__card");
   nodo.innerHTML = `
     <span class="pokemon__id">${pokemon.id}</span>
     <h3 class="pokemon__nombre">${fix_nombre(pokemon.name)}</h3>
-    <img class="pokemon__imagen" src="${pokemon.sprite}" alt="${pokemon.name}">
+    <img width="96" height="96" class="pokemon__imagen" src="${pokemon.sprite}" alt="${pokemon.name}">
   `;
   document.querySelector(".pokemones").appendChild(nodo);
 }
-async function main() {
-  const pokemones = await get_pokemones(api_root);
+
+// --- funciones de paginador ---
+async function cargarPagina(pagina = 0) {
+  const limit = 20;
+  const offset = pagina * limit;
+  const url = `${api_root}?limit=${limit}&offset=${offset}`;
+
+  // limpiar resultados anteriores
+  document.querySelector("#main-holder").innerHTML = "";
+
+  const pokemones = await get_pokemones(url);
   pokemones.forEach(renderPokemon);
 }
+
+// función principal que arranca en página 0
+async function main() {
+  await cargarPagina(0);
+}
+
 window.addEventListener("DOMContentLoaded", main);

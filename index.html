@@ -3,15 +3,30 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Buscador de Pokemones</title>
   <link rel="stylesheet" href="static/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
   <script type="text/javascript" src="static/js/pokemon.js" defer></script>
-  <script type="text/javascript" src="static/js/index.js" defer></script>
+  <script type="text/javascript" src="static/js/ui.js" defer></script>
   
 </head>
 <body>
   <h1 class="titulo">Pokedex</h1>
-  <section class="pokemones">
+  <section class="ui" id="#ui">
+
+    <label for ="#btn-input">Página:</label>
+    <button class="boton" id="btn-izquierda">
+      <i class="fa-solid fa-caret-left"></i>
+    </button>
+    <input class="boton ui__input" id="btn-input" >
+    <button class="boton" id="btn-derecha">
+      <i class="fa-solid fa-caret-right">
+      </i></button>
+    <button class="boton" id="btn-buscar">buscar</button>
+
+  </section>
+  <section class="pokemones" id="main-holder">
     
   </section>
 
