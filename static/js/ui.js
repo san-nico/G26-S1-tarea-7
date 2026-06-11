@@ -21,6 +21,9 @@ export function inicializarPaginacion() {
 
   btnIzquierda.addEventListener("click", () => {
     paginaNueva -= 1;
+    if (paginaNueva < 1) {
+      paginaNueva = 1;
+    }
     input.value = paginaNueva;
   });
 
