@@ -19,13 +19,15 @@ img{
     display:block;
 }
 body{
+    min-height:100vh;
     display:grid;
     gap:var(--gap-1);
-    grid-template-rows:1fr;
+
     font-family:"calibri";
     justify-items:center;
+    align-content:start;
     background: radial-gradient(circle, #11767c, #2c1e2e);
-
+    background-repeat: no-repeat;
     color:white;
     height:100%;
 }
@@ -41,10 +43,12 @@ body{
          pointer-events: none; 
 }
 .pokemones{
-    justify-self:center;
     display:grid;
+
+    justify-self:center;
     gap:var(--gap-1);
     grid-template-columns:repeat(5,1fr);
+
 }
 .titulo{
     width:100%;

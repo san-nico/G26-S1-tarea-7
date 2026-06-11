@@ -50,18 +50,21 @@ function renderPokemon(pokemon) {
   document.querySelector(".pokemones").appendChild(nodo);
 }
 
-// --- funciones de paginador ---
 async function cargarPagina(pagina = 0) {
   const limit = 20;
   const offset = pagina * limit;
   const url = `${api_root}?limit=${limit}&offset=${offset}`;
 
-  // limpiar resultados anteriores
-  document.querySelector("#main-holder").innerHTML = "";
-
+  // primero obtenemos los nuevos pokemones
   const pokemones = await get_pokemones(url);
+
+  // ahora sí, limpiamos y renderizamos
+  const contenedor = document.querySelector("#main-holder");
+  contenedor.innerHTML = "";
+
   pokemones.forEach(renderPokemon);
 }
+
 
 // función principal que arranca en página 0
 async function main() {
