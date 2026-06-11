@@ -1,0 +1,63 @@
+<section class="modal" id="modal">
+  <article class="pokemon-modal">
+
+    <i id="pokemon-modal__cerrar" class="pokemon-modal__cerrar fa-solid fa-x"></i>
+
+    <div class="pokemon-modal__bloque">
+
+      <h1 class="pokemon-modal__name">
+        <%= name %>
+      </h1>
+      <img src="<%= sprites.front_default %>" class="pokemon-modal__image" alt="Imagen de <%= name %>" />
+    </div>
+
+    <!-- Info ahora usa el mismo bloque que stats -->
+    <div class="pokemon-modal__bloque">
+      <h3 class="subtituto">Información:</h3>
+    <article class="pokemon-modal__stats">
+      <div class="pokemon-modal__stat">
+        <span class="pokemon-modal__stat-name">ID:</span>
+        <span class="pokemon-modal__stat-value">
+          <%= id %>
+        </span>
+      </div>
+      <div class="pokemon-modal__stat">
+        <span class="pokemon-modal__stat-name">Altura:</span>
+        <span class="pokemon-modal__stat-value">
+          <%= height %>
+        </span>
+      </div>
+    </article>
+    </div>
+
+    <div class="pokemon-modal__bloque">
+      <h3 class="subtituto">Tipos</h3>
+    <article class="pokemon-modal__stats">
+      <% types.forEach((type)=> { %>
+        <div class="pokemon-modal__stat">
+          <span class="pokemon-modal__type-name">
+            <%= type.type.name %>
+          </span>
+        </div>
+        <% }) %>
+    </article>
+    </div>
+
+    <div class="pokemon-modal__bloque">
+
+      <h3 class="subtituto">Estadísticas</h3>
+      <article class="pokemon-modal__stats">
+        <% stats.forEach((stat)=> { %>
+        <div class="pokemon-modal__stat">
+          <span class="pokemon-modal__stat-name">
+            <%= stat.stat.name %>:
+          </span>
+          <span class="pokemon-modal__stat-value">
+            <%= stat.base_stat %>
+          </span>
+        </div>
+        <% }) %>
+      </article>
+    </div>
+  </article>
+</section>

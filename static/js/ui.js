@@ -1,23 +1,31 @@
-const btn_derecha = document.querySelector("#btn-derecha");
-const btn_izquierda = document.querySelector("#btn-izquierda");
-const btn_buscar = document.querySelector("#btn-buscar");
-const input = document.querySelector("#btn-input");
-let pagina=1;
-let pagina_nueva=1;
-input.value=pagina;
+let pagina = 1;
+let paginaNueva = 1;
 
-btn_derecha.addEventListener("click", async () => {
-    pagina_nueva += 1;
-    input.value=pagina_nueva;
-});
-btn_izquierda.addEventListener("click", async () => {
-    pagina_nueva -= 1;
-    input.value=pagina_nueva;
-});
-btn_buscar.addEventListener("click", async () => {
-    if (pagina!==pagina_nueva){
-        pagina=pagina_nueva
-        await cargarPagina(pagina);
+import {cargarPagina} from "./render.js";
+
+export function inicializarPaginacion() {
+  const btnDerecha = document.querySelector("#btn-derecha");
+  const btnIzquierda = document.querySelector("#btn-izquierda");
+  const btnBuscar = document.querySelector("#btn-buscar");
+  const input = document.querySelector("#btn-input");
+
+  input.value = pagina;
+
+  btnDerecha.addEventListener("click", () => {
+    paginaNueva += 1;
+    input.value = paginaNueva;
+  });
+
+  btnIzquierda.addEventListener("click", () => {
+    paginaNueva -= 1;
+    input.value = paginaNueva;
+  });
+
+  btnBuscar.addEventListener("click", async () => {
+    console.log("cargando")
+    if (pagina !== paginaNueva) {
+      pagina = paginaNueva;
+      await cargarPagina(pagina);
     }
-    
-});
+  });
+}
