@@ -6,6 +6,10 @@ Aplicación web para explorar y buscar Pokémon mediante la PokéAPI.
 
 Desarrollada con **HTML**, **CSS**, **JavaScript** y **EJS**. Consume datos de la PokéAPI para mostrar información de los Pokémon.
 
+## 🔗 Aplicación en línea
+
+https://san-nico.github.io/G26-S1-tarea-7/
+
 ## ✨ Características
 
 * Listado de 20 Pokémon por página.
