@@ -21,11 +21,13 @@ export function inicializarPaginacion() {
     input.value = paginaNueva;
   });
 
-  btnBuscar.addEventListener("click", async () => {
-    console.log("cargando")
-    if (pagina !== paginaNueva) {
-      pagina = paginaNueva;
-      await cargarPagina(pagina);
-    }
-  });
+btnBuscar.addEventListener("click", () => {
+  console.log("cargando");
+  if (pagina !== paginaNueva) {
+    pagina = paginaNueva;
+    // En vez de await cargarPagina(pagina), cambiamos el hash
+    location.hash = `pagina=${pagina}`;
+  }
+});
+
 }
