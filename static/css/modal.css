@@ -15,7 +15,7 @@
     gap:var(--gap-3);
     padding:var(--gap-3);
     border-radius:var(--gap-2);
-    background:rgba(119, 91, 201, 0.95);
+    background:rgba(66, 52, 107, 0.95);
 
 }
 .pokemon-modal__cerrar{
@@ -25,7 +25,7 @@
     top:-.5rem;
     right:-.5rem;
     cursor:pointer;
-    background:#35249d;
+    background:#282156;
     padding:var(--gap-2);
 
 
@@ -75,7 +75,7 @@
 .pokemon-modal__stat {
     display:grid;
 
-    background:#FFF4;
+    background:rgba(255, 255, 255, 0.148);
     gap:var(--gap-1);
     grid-template-columns: 1fr auto;
     border:1px solid #FFF5;
