@@ -18,38 +18,47 @@
 img{
     display:block;
 }
+html{
+        background: radial-gradient(circle, #11767c, #2c1e2e);
+    background-repeat: no-repeat;
+}
 body{
+    width:100%;
     min-height:100vh;
     display:grid;
     gap:var(--gap-1);
-
+ 
+    justify-items: center;
     font-family:"calibri";
-    justify-items:center;
-    align-content:start;
-    background: radial-gradient(circle, #11767c, #2c1e2e);
-    background-repeat: no-repeat;
+
+    grid-template-rows: auto auto 1fr;
+
     color:white;
-    height:100%;
+
 }
 .ui{
     display:flex;
     align-items:center;
     gap:var(--gap-3);
 
+ 
 }
 .ui__input{
     width:5rem;
     text-align: center;
          pointer-events: none; 
 }
-.pokemones{
-    display:grid;
+.pokemones {
+    display: grid;
+    
+    gap: var(--gap-1);
+    width:min(100%, 800px);
 
-    justify-self:center;
-    gap:var(--gap-1);
-    grid-template-columns:repeat(5,1fr);
-
+    justify-content: center;
+    align-content: start;
+    grid-template-columns: repeat(auto-fill, 120px);
 }
+
 .titulo{
     width:100%;
     background:var(--color_alfa_oscuro);
@@ -61,52 +70,4 @@ body{
     border:var(--borde_item);
     cursor: pointer;
     font-weight:bold;
-}
-.pokemon__holder{
-    display:grid;
-    place-items:center;
-}
-.pokemon__card{
-    display:grid;
-    gap:var(--gap-2);
-    justify-items:center;
-    align-items:center;
-    position:relative;
-}
-.pokemon__id{
-    display:grid;
-    position:absolute;
-    top:var(--gap-3);
-    left:var(--gap-3);
-    place-items:center;
-    font-weight:bold;
-    background:hsl(0,0%,10%);
-    border-radius:100%;
-    width:calc(var(--gap-1));
-    font-size:.6rem;
-    text-align:center;
-    aspect-ratio:1/1;
-    border: var(--borde_item);
-}
-.pokemon__nombre{
-    position:absolute;
-    bottom:calc(-1 * var(--gap-2));
-    left:0;
-    right:0;
-    text-align:center;
-    padding:var(--gap-3) ;
-    border-radius:1rem;
-    background:linear-gradient(
-        hsl(180,100%,15%),
-        hsl(180,100%,10%)
-    );
-    text-transform:capitalize;
-}
-.pokemon__imagen{
-    border-radius:100%;
-    border:var(--gap-3) #824444 solid;
-    background:radial-gradient(
-        hsl(183 64% 30%),
-        hsl(183 64% 45%)
-    );
 }
