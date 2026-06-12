@@ -1,0 +1,73 @@
+/*reset*/
+*{
+    margin:0;   
+    padding:0;
+    box-sizing: border-box;
+    color:inherit;
+    background:none;
+}
+:root{
+    --borde_item:2px hsl(170deg 100% 30%) solid;
+    --color_alfa:#ffffff7a;
+    --color_alfa_oscuro:#0000004d;
+    --gap-1:1.20rem;  
+    --gap-2:0.60rem;
+    --gap-3:0.30rem;
+    --gap-4:0.15rem;
+}
+img{
+    display:block;
+}
+html{
+        background: radial-gradient(circle, #11767c, #2c1e2e);
+    background-repeat: no-repeat;
+}
+body{
+    width:100%;
+    min-height:100vh;
+    display:grid;
+    gap:var(--gap-1);
+ 
+    justify-items: center;
+    font-family:"calibri";
+
+    grid-template-rows: auto auto 1fr;
+
+    color:white;
+
+}
+.ui{
+    display:flex;
+    align-items:center;
+    gap:var(--gap-3);
+
+ 
+}
+.ui__input{
+    width:5rem;
+    text-align: center;
+         pointer-events: none; 
+}
+.pokemones {
+    display: grid;
+    
+    gap: var(--gap-1);
+    width:min(100%, 800px);
+
+    justify-content: center;
+    align-content: start;
+    grid-template-columns: repeat(auto-fill, 120px);
+}
+
+.titulo{
+    width:100%;
+    background:var(--color_alfa_oscuro);
+    padding:var(--gap-1);
+}
+.boton{
+    padding:var(--gap-3) var(--gap-2);
+    border-radius:var(--gap-2);
+    border:var(--borde_item);
+    cursor: pointer;
+    font-weight:bold;
+}
