@@ -13,6 +13,7 @@ async function loadTemplates() {
     pokemonTemplate = await (await fetch("static/ejs/modal.ejs")).text();
 }
 async function initHolders() {
+    mainholder.innerHTML = "";
     for (let i = 0; i < 20; i++) {
         let data = {
             "id": "",
@@ -45,6 +46,7 @@ export async function cargarPokemon(indice) {
 
 export async function cargarPagina(pagina = 1) {
     pagina-=1
+    initHolders();
     let promesas = await get_pokemones(pagina)
     Array.from(mainholder.querySelectorAll('.pokemon__card')).forEach(
         child => child.pointerEvents="none"
