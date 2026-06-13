@@ -1,7 +1,6 @@
 import { inicializarPaginacion, setPagina } from "./ui.js";
 import { loadTemplates, cargarPagina, cargarPokemon } from "./render.js";
 
-
 function mainController(){
     // Quita el símbolo #
     const hash = location.hash.substring(1);
